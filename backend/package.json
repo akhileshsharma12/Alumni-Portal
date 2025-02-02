@@ -1,0 +1,25 @@
+{
+  "name": "alumni-portal-backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/techbooster23/Alumni-Portal#readme",
+  "bugs": {
+    "url": "https://github.com/techbooster23/Alumni-Portal/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techbooster23/Alumni-Portal.git"
+  },
+  "license": "ISC",
+  "author": "Akash Pawar",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2"
+  }
+}
