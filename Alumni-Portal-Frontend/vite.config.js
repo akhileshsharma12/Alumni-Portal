@@ -8,4 +8,11 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  theme: {
+    extends: {
+      color: {
+        customPurple: '#5c0f8b',
+      },
+    },
+  },
 })

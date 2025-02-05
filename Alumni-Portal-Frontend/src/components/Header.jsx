@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import main_logo from '../assets/ghrua-white.png';
 
 const Header = () => {
     return (
         <div>
-            <div className="navbar bg-purple-800 text-white">
-                <div className="navbar-start">
+            <div className="navbar bg-customPurple text-white px-5 ">
+                <div className="navbar-start ">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg
@@ -23,36 +24,41 @@ const Header = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                            <li>
-                                <a>Parent</a>
+                            <li className='text-xl'><a> Events </a></li>
+                            <li className='text-xl'><a> Jobs </a></li>
+                            {/* <li className='text-xl'>
+                                <a> Jobs </a>
                                 <ul className="p-2">
                                     <li><a>Submenu 1</a></li>
                                     <li><a>Submenu 2</a></li>
                                 </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
+                            </li> */}
+                            <li className='text-xl'><a> About </a></li>
+                            <li className='text-xl'><a> Contact </a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
+                    <img className='h-12 ' src={main_logo} alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
-                        <li>
+                        <li className='text-xl'><a> Events </a></li>
+                        <li className='text-xl'><a> Jobs </a></li>
+                        {/* <li>
                             <details>
-                                <summary>Parent</summary>
+                                <summary className='text-xl'> Jobs </summary>
                                 <ul className="p-2">
                                     <li><a>Submenu 1</a></li>
                                     <li><a>Submenu 2</a></li>
                                 </ul>
                             </details>
-                        </li>
-                        <li><a>Item 3</a></li>
+                        </li> */}
+                        <li className='text-xl'><a> About </a></li>
+                        <li className='text-xl'><a> Contact </a></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn bg-purple-900 border-2 border-white  ">Register/Login</a>
+                    <a className="btn bg-purple-900 border-2 border-white text-white ">Register/Login</a>
                 </div>
             </div>
         </div>
