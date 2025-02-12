@@ -11,7 +11,7 @@ export default defineConfig({
   theme: {
     extends: {
       color: {
-        customPurple: '#5c0f8b',
+        'customPurple': '#5c0f8b',
       },
     },
   },
