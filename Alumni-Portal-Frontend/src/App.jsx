@@ -13,6 +13,8 @@ import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
 import Login from './components/Login';
 import Home from './pages/Home';
+import AlumniDirectory from './pages/AlumniDirectory';
+
 
 function App() {
 
@@ -28,6 +30,7 @@ function App() {
           <Route path='/contact' element={<ContactUs />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/home' element={<Home />}></Route>
+          <Route path='/alumni_directory' element={<AlumniDirectory />}></Route>
         </Routes>
 
         {/* <Routes>

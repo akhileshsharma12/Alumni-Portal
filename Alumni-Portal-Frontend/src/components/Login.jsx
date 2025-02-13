@@ -75,7 +75,7 @@ const Login = () => {
                             required />
 
 
-                        <p className='text-end text-gray-600 pt-2 text=[8px]'> Forgot Password </p>    
+                        <p className='text-end text-gray-600 pt-2 text=[8px] underline'> Forgot Password </p>    
                     </div>
                
 

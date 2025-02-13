@@ -3,7 +3,7 @@ import React from "react";
 const ProfileCard = () => {
     return (
         <div className="border border-gray-300 shadow-lg w-full max-w-md rounded-lg px-5 py-4 bg-white">
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
                 {/* Profile Image */}
                 <img
                     src="" // Add your image URL here
@@ -12,7 +12,7 @@ const ProfileCard = () => {
                 />
 
                 {/* Profile Details */}
-                <div>
+                <div className="text-center sm:text-left">
                     <h1 className="text-2xl font-semibold text-gray-900">Akhilesh Sharma</h1>
                     <span className="text-purple-700 text-lg font-medium">Software Engineer</span>
                     <br />

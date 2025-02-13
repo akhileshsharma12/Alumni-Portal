@@ -11,6 +11,8 @@ const UpComingEvents = () => {
 
             <p className="py-3"> Footprint 2025 – A Walk Down Memory Lane!  🎉 </p>
 
+            <span className="text-purple-800"> Saturday 15 Feb, 2025 </span>
+
             <p className="text-purple-800 underline mt-10 text-right"> View More </p>
         </div> 
     );
