@@ -1,12 +1,13 @@
 import React from "react";
+import avatar_img from '../assets/avatar.jpeg'; 
 
 const ProfileCard = () => {
     return (
-        <div className="border border-gray-300 shadow-lg w-full max-w-md rounded-lg px-5 py-4 bg-white">
+        <div className="border border-gray-300 shadow-lg w-full max-w-md rounded-lg px-5 py-4  bg-white">
             <div className="flex flex-col sm:flex-row items-center gap-6">
                 {/* Profile Image */}
                 <img
-                    src="" // Add your image URL here
+                    src={avatar_img} // Add your image URL here
                     alt="Profile"
                     className="h-24 w-24 bg-purple-200 rounded-full border-2 border-purple-600"
                 />
@@ -21,7 +22,7 @@ const ProfileCard = () => {
             </div>
 
             {/* Profile Link */}
-            <p className="text-right text-purple-800 underline font-medium mt-3 cursor-pointer hover:text-purple-600">
+            <p className="text-right text-purple-800 underline font-medium mt-10 cursor-pointer hover:text-purple-600">
                 Go to your Profile
             </p>
         </div>

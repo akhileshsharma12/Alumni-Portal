@@ -5,7 +5,7 @@ import UpComingEvents from "./UpComingEvents";
 
 const HomeMain = () => {
     return (
-        <div className="w-full md:w-[80%] min-h-screen py-10 bg-white">
+        <div className="w-full md:w-[80%] min-h-screen py-13 lg:py-15 bg-white">
            <Hero2 />
 
            <div className="m-5 flex flex-col md:flex-row gap-15 md:gap-30">

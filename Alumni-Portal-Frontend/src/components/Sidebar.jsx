@@ -245,14 +245,18 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
                             <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Alumni Directory</span>
                         </button>
                     </Link>
-                    <button className="flex items-center space-x-4 px-6 py-2 rounded-lg hover:bg-gray-700 w-full text-left">
-                        <FaCalendarAlt size={20} />
-                        <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Events</span>
-                    </button>
-                    <button className="flex items-center space-x-4 px-6 py-2 rounded-lg hover:bg-gray-700 w-full text-left">
-                        <FaBriefcase size={20} />
-                        <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Jobs Board</span>
-                    </button>
+                    <Link to='/events'>
+                        <button className="flex items-center space-x-4 px-6 py-2 mt-2 rounded-lg hover:bg-gray-700 w-full text-left">
+                            <FaCalendarAlt size={20} />
+                            <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Events</span>
+                        </button>
+                    </Link>
+                    <Link to='/jobBoard'>
+                        <button className="flex items-center space-x-4 px-6 py-2 mt-2 rounded-lg hover:bg-gray-700 w-full text-left">
+                            <FaBriefcase size={20} />
+                            <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Jobs Board</span>
+                        </button>
+                    </Link>
                     <button className="flex items-center space-x-4 px-6 py-2 rounded-lg hover:bg-gray-700 w-full text-left">
                         <FaImages size={20} />
                         <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Memories</span>

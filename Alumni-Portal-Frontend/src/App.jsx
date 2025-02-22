@@ -14,6 +14,8 @@ import AboutUs from './pages/AboutUs';
 import Login from './components/Login';
 import Home from './pages/Home';
 import AlumniDirectory from './pages/AlumniDirectory';
+import Events from './pages/Events';
+import JobBoard from './pages/JobBoard';
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
           <Route path='/login' element={<Login />}></Route>
           <Route path='/home' element={<Home />}></Route>
           <Route path='/alumni_directory' element={<AlumniDirectory />}></Route>
+          <Route path='/events' element={<Events />}></Route>
+          <Route path='/jobBoard' element={<JobBoard />}></Route>
         </Routes>
 
         {/* <Routes>
