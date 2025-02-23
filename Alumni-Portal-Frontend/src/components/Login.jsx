@@ -75,9 +75,9 @@ const Login = () => {
                             required />
 
 
-                        <p className='text-end text-gray-600 pt-2 text=[8px] underline'> Forgot Password </p>    
+                        <p className='text-end text-gray-600 pt-2 text=[8px] underline'> Forgot Password </p>
                     </div>
-               
+
 
                     <button type="submit" className="text-white w-full bg-purple-700 hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center">Submit</button>
 
@@ -87,7 +87,9 @@ const Login = () => {
                         <button type="submit" className="text-black flex justify-center items-center gap-2 w-full border border-black  hover:bg-purple-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-[14px] px-5 py-2 text-center"> <img className='h-8' src={google} alt="" /> Continue With Google </button>
                     </div>
 
-                    <h4 className='text-purple-800 text-center mt-2'> Create an Account </h4>
+                    <Link to='/sign_in'>
+                        <h4 className='text-purple-800 text-center mt-2'> Create an Account </h4>
+                    </Link>
                 </form>
 
                 <ToastContainer />

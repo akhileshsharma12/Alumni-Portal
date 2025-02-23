@@ -16,6 +16,7 @@ import Home from './pages/Home';
 import AlumniDirectory from './pages/AlumniDirectory';
 import Events from './pages/Events';
 import JobBoard from './pages/JobBoard';
+import SignIn from './components/SignIn';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/about' element={<AboutUs />}></Route>
           <Route path='/contact' element={<ContactUs />}></Route>
           <Route path='/login' element={<Login />}></Route>
+          <Route path='/sign_in' element={<SignIn />}></Route>
           <Route path='/home' element={<Home />}></Route>
           <Route path='/alumni_directory' element={<AlumniDirectory />}></Route>
           <Route path='/events' element={<Events />}></Route>

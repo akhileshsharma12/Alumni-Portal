@@ -18,7 +18,9 @@ const Features = () => {
             <i className="fa-solid fa-graduation-cap text-4xl text-black"></i>
             <h2 className='text-zinc-800 text-2xl font-bold'>Alumni Directory</h2>
           </div>
-          <p className='text-zinc-700 mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam vero culpa consequuntur dolore quis natus quisquam labore voluptatibus omnis!</p>
+          <p className='text-zinc-700 mt-3'>
+          A searchable database of alumni profiles, including their names, graduation years, professional details, and contact information.
+          </p>
         </div>
 
         <div className='bg-purple-100 p-5 rounded-md shadow-md'>
@@ -26,7 +28,9 @@ const Features = () => {
             <i className="fa-solid fa-calendar-day text-3xl text-black"></i>
             <h2 className='text-zinc-800 text-2xl font-bold'>Event Management</h2>
           </div>
-          <p className='text-zinc-700 mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam vero culpa consequuntur dolore quis natus quisquam labore voluptatibus omnis!</p>
+          <p className='text-zinc-700 mt-3'>
+          A platform for alumni and companies to post job openings and internships for students and fellow alumni.
+          </p>
         </div>
 
         <div className='bg-purple-100 p-5 rounded-md shadow-md'>
@@ -34,7 +38,9 @@ const Features = () => {
             <i className="fa-solid fa-briefcase text-4xl text-black"></i>
             <h2 className='text-zinc-800 text-2xl font-bold'>Career Support</h2>
           </div>
-          <p className='text-zinc-700 mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam aliquam vero culpa consequuntur dolore quis natus quisquam labore voluptatibus omnis!</p>
+          <p className='text-zinc-700 mt-3'>
+          A platform for alumni and companies to post job openings and internships for students and fellow alumni.
+          </p>
         </div>
       </div>
     </div>

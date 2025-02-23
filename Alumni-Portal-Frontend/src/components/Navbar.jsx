@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [notificationOpen, setNotificationOpen] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 1024);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
@@ -24,6 +25,11 @@ const Navbar = () => {
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
+
+    const sidebarScrollStyle = {
+        scrollbarWidth: "none",
+        
+    }
 
     return (
         <div>
@@ -47,14 +53,82 @@ const Navbar = () => {
                         <Link to="/home">
                             <FaHome size={29} className="cursor-pointer" />
                         </Link>
-                        <FaBell size={27} className="cursor-pointer" />
+                        {/* <FaBell size={27} className="cursor-pointer" /> */}
                     </div>
 
                     {/* Mobile Menu Toggle */}
 
-                    <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
+                    <button className="text-white" onClick={() => setNotificationOpen(!notificationOpen)}>
                         <FaBell size={25} />
                     </button>
+
+                    {notificationOpen && (
+                        <div className="absolute right-5 top-17 mt-2 w-90 sm:w-2/5 max-w-md border-2 border-purple-800 bg-white text-black shadow-lg rounded-lg overflow-hidden">
+                            <div className="px-4 py-2 font-semibold border-b border-purple-800">
+                                Notifications
+                            </div>
+                            <ul style={sidebarScrollStyle} className="max-h-56 px-2 py-2 overflow-y-auto overflow-x-hidden scrollbar-hide">
+                                {/* Make that code in Component */}
+                                <li className="px-4 py-1 mb-1 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+                                <li className="px-4 py-1 mb-1 bg-gray-100 hover:bg-purple-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+                                <li className="px-4 py-1 mb-1 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+                                <li className="px-4 py-1 mb-1 bg-gray-100 hover:bg-purple-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+                                <li className="px-4 py-1 mb-1 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+                                <li className="px-4 py-1 mb-1 bg-gray-100 hover:bg-purple-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+                                <li className="px-4 py-1 mb-1 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+                                <li className="px-4 py-1 mb-1 bg-gray-100 hover:bg-purple-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+                                <li className="px-4 py-1 mb-1 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+                                <li className="px-4 py-1 mb-1 bg-gray-100 hover:bg-purple-200 border border-purple-700 rounded">
+                                    You have a job enquiry
+                                </li>
+
+                            </ul>
+                        </div>
+                    )}
+
+
+                    {/* <button className=" text-white" onClick={() => setNotificationOpen(!notificationOpen)}>
+                        <FaBell size={25} />
+                    </button>
+                    {notificationOpen && (
+                        <ul className="absolute right-5 top-16 mt-2 w-70 h-70 border-2 border-purple-800 bg-white text-black shadow-lg rounded-lg overflow-hidden">
+                            <li className="px-3 py-2 cursor-pointer"> Notification </li>
+                            <div className="px-2 py-1 overflow-y-auto h-56">
+                                <ul className="">
+                                    <li className="px-2 mb-2 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-gray-100 hover:bg-purple-50 border border-black rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-gray-100 hover:bg-purple-50 border border-black rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-gray-100 hover:bg-purple-50 border border-black rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-gray-100 hover:bg-purple-50 border border-black rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-gray-100 hover:bg-purple-50 border border-black rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-purple-100 hover:bg-gray-200 border border-purple-700 rounded"> Your have job enquiry </li>
+                                    <li className="px-2 mb-2 bg-gray-100 hover:bg-purple-50 border border-black rounded"> Your have job enquiry </li>
+                                </ul>
+                            </div>
+                        </ul>
+                    )} */}
                     <Link to='/home'>
                         <button className="md:hidden text-white" >
                             <FaHome size={27} />

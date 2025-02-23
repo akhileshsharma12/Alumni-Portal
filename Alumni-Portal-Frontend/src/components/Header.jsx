@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const Header = () => {
     return (
         <div className='sticky top-0 z-50 shadow-lg bg-[#5c0f8b]'>
-            <div className="navbar text-white px-2 flex justify-between items-center">
+            <div className="navbar text-white px-6 flex justify-between items-center">
                 {/* Left Side - Logo & Mobile Menu */}
                 <div className="flex items-center gap-2">
                     {/* Mobile Dropdown */}

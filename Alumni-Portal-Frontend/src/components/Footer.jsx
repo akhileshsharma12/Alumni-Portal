@@ -40,7 +40,7 @@ const Footer = () => {
                         <i className="fa-brands fa-facebook text-[23px] text-white border border-red-600 p-2 rounded-full"></i>
                         <i className="fa-brands fa-instagram text-[23px] text-white border border-red-600 p-2 rounded-full"></i>
                         <i className="fa-brands fa-x-twitter text-[23px] text-white border border-red-600 p-2 rounded-full"></i>
-                        <i className="fa-brands fa-instagram text-[23px] text-white border border-red-600 p-2 rounded-full"></i>
+                        <i className="fa-brands fa-youtube text-[23px] text-white border border-red-600 p-2 rounded-full"></i>
                     </div>
                 </nav>
 
