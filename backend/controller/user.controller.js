@@ -42,7 +42,7 @@ export const login = async (req, res) => {
         if (checkuser.rows.length > 0) {
 
             // get user info from databasse if exist
-            const response = await db.query("SELECT id, name, email,role, password FROM users WHERE email = $1", [email]);
+            const response = await db.query("SELECT id, name, email,role, password, is_verified FROM users WHERE email = $1", [email]);
             const user = response.rows[0];
             console.log(user);
             // compare Password with hash
@@ -58,7 +58,8 @@ export const login = async (req, res) => {
                     id: user.id,
                     fullname: user.name,
                     email: user.email,
-                    role: user.role
+                    role: user.role,
+                    verified : user.is_verified
                 }, process.env.JWT_SECRET_KEY, { expiresIn: "1h" });
 
                 res.cookie("token", token, {
