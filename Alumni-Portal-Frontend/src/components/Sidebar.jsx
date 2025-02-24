@@ -236,7 +236,7 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
         <div className="flex">
             {/* Sidebar */}
             <div
-                className={`bg-gray-900 text-white h-screen py-4 transition-all duration-300 fixed top-14 left-0 z-40 ${isOpen ? "w-64 md:w-1/5" : "w-0"} ${isMobile ? (isOpen ? "block" : "hidden") : "block"}`}
+                className={`bg-gray-900 text-white h-screen py-4 transition-all duration-300 fixed top-14 left-0 z-40 ${isOpen ? "w-56 md:w-1/5" : "w-0"} ${isMobile ? (isOpen ? "block" : "hidden") : "block"}`}
             >
                 <nav className="space-y-4 mt-6">
                     <Link to='/alumni_directory' >
