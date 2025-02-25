@@ -20,8 +20,8 @@ const Login = () => {
 
     if (role === "admin") {
         navigate('/admin/home');
-    } else if (role === "student") {
-        navigate('/student/home');
+    } else if (role === "alumni") {
+        navigate('/alumni/home');
     }
 
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import HomeMain2 from '../components/HomeMain2'
-import Navbar from '../components/Navbar'
-import Sidebar from '../components/Sidebar'
+import HomeMain2 from '../../components/HomeMain2'
+import Navbar from '../../components/Navbar'
+import Sidebar from '../../components/Sidebar'
 
-const AlumniDirectory = () => {
+const AlumniManagement = () => {
     return (
         <div>
             <Navbar />
@@ -15,4 +15,4 @@ const AlumniDirectory = () => {
     )
 }
 
-export default AlumniDirectory
+export default AlumniManagement
