@@ -10,15 +10,17 @@ import Features from '../components/Features'
 const Intro = () => {
   return (
     <div>
-       <Header />
+      <Header />
 
+      <div >
         <Hero />
         <Features />
         <Memories />
         <JobPositions />
         <Collaborator />
+      </div>
 
-       <Footer />
+      <Footer />
     </div>
   )
 }

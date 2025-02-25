@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import main_logo from '../assets/ghrua-white.png';
 import logo from '../assets/logo-ghru.webp';
 import google from '../assets/google logo.png';
@@ -6,13 +6,24 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import { useRole } from '../store/RoleProvider';
 
 const Login = () => {
+    const { setRole } = useRole();
+    const { role } = useRole();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
+
+
+    if (role === "admin") {
+        navigate('/admin/home');
+    } else if (role === "student") {
+        navigate('/student/home');
+    }
+
 
     function handleForm(e) {
         e.preventDefault();
@@ -20,12 +31,11 @@ const Login = () => {
         console.log("Email = ", email);
         console.log("Password = ", password);
 
+
+        setRole('admin');
+
         setEmail('');
         setPassword('');
-
-        setTimeout(() => {
-            navigate('/home');
-        }, 3000);
 
         toast('✅ Login Successful !', {
             position: "top-right",
@@ -41,10 +51,7 @@ const Login = () => {
 
     return (
         <div className='bg-purple-800 h-full flex justify-center items-center '>
-
-
             <div className='bg-white pb-5 w-95 rounded-xl '>
-
                 <div className='text-center flex p-6'>
                     <img className='h-10 mt-3 ml-9' src={logo} alt="" />
                     <span className='text-lg ml-10 text-purple-800'> Alumni <br /> Portal </span>
@@ -74,10 +81,8 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             required />
 
-
                         <p className='text-end text-gray-600 pt-2 text=[8px] underline'> Forgot Password </p>
                     </div>
-
 
                     <button type="submit" className="text-white w-full bg-purple-700 hover:bg-purple-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center">Submit</button>
 
@@ -93,11 +98,9 @@ const Login = () => {
                 </form>
 
                 <ToastContainer />
-
             </div>
-
         </div>
     )
 }
 
-export default Login
+export default Login;

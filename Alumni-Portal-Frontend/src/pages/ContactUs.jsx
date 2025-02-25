@@ -8,7 +8,9 @@ const ContactUs = () => {
     <div>
       <Header />
 
-      <Contact />
+      <div className=' '>
+        <Contact />
+      </div>
 
       <Footer />
     </div>

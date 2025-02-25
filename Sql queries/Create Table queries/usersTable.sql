@@ -7,3 +7,4 @@ CREATE TABLE users (
     is_verified BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT NOW()
 );
+
