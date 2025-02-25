@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
-import HomeMain4 from '../components/HomeMain4';
+import Navbar from '../../components/Navbar';
+import Sidebar from '../../components/Sidebar';
+import HomeMain4 from '../../components/HomeMain4';
 
 const JobBoard = () => {
   return (

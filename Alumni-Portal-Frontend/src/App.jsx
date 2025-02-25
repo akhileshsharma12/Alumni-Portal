@@ -8,15 +8,31 @@ import Footer from './components/Footer';
 import JobPositions from './components/JobPositions';
 import Contact from './components/Contact';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Intro from './pages/Intro';
-import ContactUs from './pages/ContactUs';
-import AboutUs from './pages/AboutUs';
+
+// intro pages
+import Intro from './pages/intro/Intro';
+import ContactUs from './pages/intro/ContactUs';
+import AboutUs from './pages/intro/AboutUs';
+
+
+
+// login and register
 import Login from './components/Login';
-import Home from './pages/Home';
-import AlumniDirectory from './pages/AlumniDirectory';
-import Events from './pages/Events';
-import JobBoard from './pages/JobBoard';
 import SignIn from './components/SignIn';
+
+// alumni pages
+import Alumni_Home from './pages/alumni/Home';
+import Alumni_AlumniDirectory from './pages/alumni/AlumniDirectory';
+import Alumni_Events from './pages/alumni/Events';
+import Alumni_JobBoard from './pages/alumni/JobBoard';
+
+// admin pages
+import Admin_Home from './pages/admin/Home';
+import Admin_AlumniManagement from './pages/admin/AlumniManagement';
+import Admin_EventsManagement from './pages/admin/EventsManagement';
+import Admin_JobBoard from './pages/admin/JobBoard';
+
+
 import { RoleProvider, useRole } from './store/RoleProvider';
 
 const ProtectedRoute = ({ children, roleList }) => {
@@ -43,17 +59,17 @@ function App() {
               <Route path='/sign_in' element={<SignIn />}></Route>
 
               <Route path='/admin'>
-                <Route path='home' element={<ProtectedRoute roleList={['admin']}><Home /></ProtectedRoute>}></Route>
-                <Route path='alumni_directory' element={<ProtectedRoute roleList={['admin']}><AlumniDirectory /></ProtectedRoute>}></Route>
-                <Route path='events' element={<ProtectedRoute roleList={['admin']}><Events /></ProtectedRoute>}></Route>
-                <Route path='jobBoard' element={<ProtectedRoute roleList={['admin']}><JobBoard /></ProtectedRoute>}></Route>
+                <Route path='home' element={<ProtectedRoute roleList={['admin']}><Admin_Home /></ProtectedRoute>}></Route>
+                <Route path='alumni_directory' element={<ProtectedRoute roleList={['admin']}><Admin_AlumniManagement /></ProtectedRoute>}></Route>
+                <Route path='events' element={<ProtectedRoute roleList={['admin']}><Admin_EventsManagement /></ProtectedRoute>}></Route>
+                <Route path='jobBoard' element={<ProtectedRoute roleList={['admin']}><Admin_JobBoard /></ProtectedRoute>}></Route>
               </Route>
 
-              <Route path='/student'>
-                <Route path='home' element={<ProtectedRoute roleList={['student']}><Home /></ProtectedRoute>}></Route>
-                <Route path='alumni_directory' element={<ProtectedRoute roleList={['student']}><AlumniDirectory /></ProtectedRoute>}></Route>
-                <Route path='events' element={<ProtectedRoute roleList={['student']}><Events /></ProtectedRoute>}></Route>
-                <Route path='jobBoard' element={<ProtectedRoute roleList={['student']}><JobBoard /></ProtectedRoute>}></Route>
+              <Route path='/alumni'>
+                <Route path='home' element={<ProtectedRoute roleList={['alumni']}><Alumni_Home /></ProtectedRoute>}></Route>
+                <Route path='alumni_directory' element={<ProtectedRoute roleList={['alumni']}><Alumni_AlumniDirectory /></ProtectedRoute>}></Route>
+                <Route path='events' element={<ProtectedRoute roleList={['alumni']}><Alumni_Events /></ProtectedRoute>}></Route>
+                <Route path='jobBoard' element={<ProtectedRoute roleList={['alumni']}><Alumni_JobBoard /></ProtectedRoute>}></Route>
               </Route>
             </Routes>
           </Router>
