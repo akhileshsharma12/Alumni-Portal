@@ -12,7 +12,7 @@ const Intro = () => {
     <div>
       <Header />
 
-      <div >
+      <div className='pt-10'>
         <Hero />
         <Features />
         <Memories />

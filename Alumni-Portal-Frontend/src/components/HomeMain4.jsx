@@ -1,5 +1,6 @@
 import React from 'react';
 import Jobs from './Jobs';
+import { Link } from 'react-router-dom';
 
 const HomeMain4 = () => {
 
@@ -15,10 +16,16 @@ const HomeMain4 = () => {
 
     return (
         <div className="w-full md:w-[80%] min-h-screen py-22 px-5 bg-white">
-            <div className='flex gap-5 mb-5'>
-                <span className='bg-gray-200 text-black text-sm py-1 px-4 rounded-full cursor-pointer'> All Jobs </span>
-                <span className='bg-gray-200 text-black text-sm py-1 px-4 rounded-full cursor-pointer'> Post Jobs </span>
-                <span className='bg-gray-200 text-black text-sm py-1 px-4 rounded-full cursor-pointer'> Manage Jobs </span>
+            <div className='flex gap-5 mb-4 mt-1 lg:mt-0'>
+                <Link to='/Alumni/jobBoard'>
+                    <span className='bg-gray-200 text-black text-sm py-1 px-4 rounded-full cursor-pointer'> All Jobs </span>
+                </Link>
+                <Link to='/Alumni/jobBoard-postJob '>
+                    <span className='bg-gray-200 text-black text-sm py-1 px-4 rounded-full cursor-pointer'> Post Jobs </span>
+                </Link>
+                <Link to='/Alumni/jobBoard-manageJobs'>
+                    <span className='bg-gray-200 text-black text-sm py-1 px-4 rounded-full cursor-pointer'> Manage Jobs </span>
+                </Link>
             </div>
 
             <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-4">
@@ -40,7 +47,7 @@ const HomeMain4 = () => {
             </div>
 
             <div className='mt-5'>
-                <Jobs />
+                <Jobs textToShow="View More" />
             </div>
         </div>
     );

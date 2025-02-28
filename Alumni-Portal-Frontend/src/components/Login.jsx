@@ -1,29 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import main_logo from '../assets/ghrua-white.png';
 import logo from '../assets/logo-ghru.webp';
 import google from '../assets/google logo.png';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { useRole } from '../store/RoleProvider';
+//import { useRole } from '../store/RoleProvider';
+// import { useRole } from '../store/RoleProvider';
 
 const Login = () => {
-    const { setRole } = useRole();
-    const { role } = useRole();
+    // const { setRole } = useRole();
+    // const { role } = useRole();
+
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+
+    // const navigate = useNavigate();
+
+
+    // if (role === "admin") {
+    //     navigate('/admin/home');
+    // } else if (role === "alumni") {
+    //     navigate('/alumni/home');
+    // }
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const navigate = useNavigate();
-
-
-    if (role === "admin") {
-        navigate('/admin/home');
-    } else if (role === "alumni") {
-        navigate('/alumni/home');
-    }
-
 
     function handleForm(e) {
         e.preventDefault();
@@ -31,21 +35,51 @@ const Login = () => {
         console.log("Email = ", email);
         console.log("Password = ", password);
 
+        if(!email) {
+            toast.error('❌ Email is  required !', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return;
+        }
 
-        setRole('admin');
+        if(password.length <= 4) {
+            toast.error('❌ Password must be atleast 5 characters long !', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return;
+        }
+
+        // setRole('admin');
 
         setEmail('');
         setPassword('');
 
         toast('✅ Login Successful !', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: false,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
             theme: "light",
+            onClose: () => {
+                navigate('/Alumni/home');
+            }
         });
     }
 

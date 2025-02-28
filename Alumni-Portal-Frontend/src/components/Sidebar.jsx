@@ -220,8 +220,8 @@
 
 // export default Sidebar;
 
-import React from "react";
-import { useRole } from "../store/RoleProvider";
+import React, { useState } from "react";
+//import { useRole } from "../store/RoleProvider";
 import {
     FaUserFriends,
     FaBriefcase,
@@ -236,9 +236,6 @@ import { Link } from "react-router-dom";
 
 const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
 
-    const { role } = useRole();
-
-
     return (
         <div className="flex">
             {/* Sidebar */}
@@ -246,36 +243,42 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
                 className={`bg-gray-900 text-white h-screen py-4 transition-all duration-300 fixed top-14 left-0 z-40 ${isOpen ? "w-56 md:w-1/5" : "w-0"} ${isMobile ? (isOpen ? "block" : "hidden") : "block"}`}
             >
                 <nav className="space-y-4 mt-6">
-                    <Link to={`/${role}/alumni_directory`} >
+                    <Link to={`/Alumni/alumni_directory`} >
                         <button className="flex items-center space-x-4 px-6 py-2 rounded-lg hover:bg-gray-700 w-full text-left">
                             <FaUserFriends size={20} />
                             <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Alumni Directory</span>
                         </button>
                     </Link>
-                    <Link to={`/${role}/events`}>
+                    <Link to={`/Alumni/events`}>
                         <button className="flex items-center space-x-4 px-6 py-2 mt-2 rounded-lg hover:bg-gray-700 w-full text-left">
                             <FaCalendarAlt size={20} />
                             <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Events</span>
                         </button>
                     </Link>
-                    <Link to={`/${role}/jobBoard`}>
+                    <Link to={`/Alumni/jobBoard`}>
                         <button className="flex items-center space-x-4 px-6 py-2 mt-2 rounded-lg hover:bg-gray-700 w-full text-left">
                             <FaBriefcase size={20} />
                             <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Jobs Board</span>
                         </button>
                     </Link>
-                    <button className="flex items-center space-x-4 px-6 py-2 rounded-lg hover:bg-gray-700 w-full text-left">
-                        <FaImages size={20} />
-                        <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Memories</span>
-                    </button>
-                    <button className="flex items-center space-x-4 px-6 py-2 rounded-lg hover:bg-gray-700 w-full text-left">
-                        <FaUsers size={20} />
-                        <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Community</span>
-                    </button>
-                    <button className="flex items-center space-x-4 px-6 py-2 rounded-lg hover:bg-gray-700 w-full text-left">
-                        <FaDonate size={20} />
-                        <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Donation</span>
-                    </button>
+                    <Link to={`/Alumni/memories`}>
+                        <button className="flex items-center space-x-4 px-6 py-2 mt-2 rounded-lg hover:bg-gray-700 w-full text-left">
+                            <FaImages size={20} />
+                            <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Memories</span>
+                        </button>
+                    </Link>
+                    <Link to={`/Alumni/community`}>
+                        <button className="flex items-center space-x-4 px-6 py-2 mt-2 rounded-lg hover:bg-gray-700 w-full text-left">
+                            <FaUsers size={20} />
+                            <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Community</span>
+                        </button>
+                    </Link>
+                    <Link to={`/Alumni/donation`}>
+                        <button className="flex items-center space-x-4 px-6 py-2 mt-2 rounded-lg hover:bg-gray-700 w-full text-left">
+                            <FaDonate size={20} />
+                            <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Donation</span>
+                        </button>
+                    </Link>
                 </nav>
             </div>
 

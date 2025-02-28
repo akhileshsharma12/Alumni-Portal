@@ -1,18 +1,18 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
-import HomeMain6 from '../../components/HomeMain6'
+import HomeMain7 from '../../components/HomeMain7'
 
-const Community = () => {
-    return (
-        <div>
-            <Navbar />
+const Donation = () => {
+  return (
+    <div>
+        <Navbar />
             <div className='flex justify-end'>
                 <Sidebar />
-                <HomeMain6 />
+                <HomeMain7 />
             </div>
-        </div>
-    )
+    </div>
+  )
 }
 
-export default Community
+export default Donation
