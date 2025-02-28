@@ -3,12 +3,15 @@ import main_logo from "../assets/ghrua-white.png";
 import { FaBars, FaBell, FaHome, FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import { useUser } from "../store/UserProvider";
+import API from "../api/backend.api";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [notificationOpen, setNotificationOpen] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 1024);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+    const { user, setUser } = useUser();
 
     useEffect(() => {
         const handleResize = () => {
@@ -28,8 +31,21 @@ const Navbar = () => {
 
     const sidebarScrollStyle = {
         scrollbarWidth: "none",
-        
+
     }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const user = await API.get('/api/user/get-user', { withCredentials: true });
+            await setUser({
+                id: user.data.user.id,
+                name: user.data.user.fullname,
+                role: user.data.user.role,
+                verified: user.data.user.verified
+            });
+        }
+        fetchData();
+    }, []);
 
     return (
         <div>
@@ -137,14 +153,15 @@ const Navbar = () => {
 
                     {/* User Info (Hidden on Small Screens) */}
                     <div className="hidden md:block text-white text-right">
-                        <h5 className="font-bold text-lg">Akhilesh_Sh</h5>
-                        <p className="text-sm">Alumni</p>
+                        <h5 className="font-bold text-lg">{user.name}</h5>
+                        <p className="text-sm">{user.role}</p>
                     </div>
 
                     {/* Profile Picture (Dropdown) */}
                     <div className="relative">
                         <button onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
-                            <FaUserCircle size={35} className="text-white" />
+                            <img src={`https://ui-avatars.com/api/?name=${user.name}background=fff1f1&color=080e4d`} alt=""  className="rounded-4xl h-14" />
+                            {/* <FaUserCircle size={35} className="text-white" /> */}
                         </button>
 
                         {menuOpen && (

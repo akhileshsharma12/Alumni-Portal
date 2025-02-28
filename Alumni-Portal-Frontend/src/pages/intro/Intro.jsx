@@ -6,6 +6,7 @@ import JobPositions from '../../components/JobPositions'
 import Collaborator from '../../components/Collaborator'
 import Footer from '../../components/Footer'
 import Features from '../../components/Features'
+import { testApi } from '../../test/jwt.test.js'
 
 const Intro = () => {
   return (

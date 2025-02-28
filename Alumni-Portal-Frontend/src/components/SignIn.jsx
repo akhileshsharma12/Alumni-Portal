@@ -6,45 +6,54 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import API from '../api/backend.api.jsX';
+import { useForm } from "react-hook-form";
 
 const SignIn = () => {
 
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [userRole, setUserRole] = useState('alumni');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
     const navigate = useNavigate();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
 
-    function handleForm(e) {
-        e.preventDefault();
-        console.log("Form Handling");
-        console.log("Name = ", name);
-        console.log("Surname = ", surname);
-        console.log("Role =", userRole);
-        console.log("Email = ", email);
-        console.log("Password = ", password);
-
-        setName('');
-        setSurname('');
-        setEmail('');
-        setPassword('');
-
-        setTimeout(() => {
-            navigate('/login');
-        }, 3000);
-
-        toast('✅ Reister Successful!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+    const onSubmit = async (data) => {
+        const registerCredentials = {
+            name : data.firstName + ' ' + data.lastName,
+            email: data.email,
+            password: data.password,
+            role: data.role
+        }
+        try {
+            const respose = await API.post('/api/user/register', registerCredentials);
+            if (respose.status === 201){
+                 toast.success('Registered Successfuly !', {
+                                    position: "top-right",
+                                    autoClose: 1000,
+                                    hideProgressBar: false,
+                                    closeOnClick: false,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                    theme: "light",
+                                    onClose: () => {
+                                        navigate("/login");
+                                    }
+                                });
+            } 
+        } catch (error) {
+             toast.error(error.response.data.message, {
+                            position: "top-right",
+                            autoClose: 1000,
+                            hideProgressBar: false,
+                            closeOnClick: false,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
+        }
     }
 
     return (
@@ -58,9 +67,7 @@ const SignIn = () => {
                     <span className='text-lg ml-10 text-purple-800'> Alumni <br /> Portal </span>
                 </div>
 
-                <form className="max-w-sm mx-auto px-8" id='register-form' onSubmit={(e) => {
-                    handleForm(e);
-                }}>
+                <form className="max-w-sm mx-auto px-8" id='register-form' onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex gap-5 mb-3'>
                         <div className="mb-2">
                             <label className="block mb-2 text-lg font-medium text-purple-900 ">First Name</label>
@@ -69,9 +76,10 @@ const SignIn = () => {
                                 id="email"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 "
                                 placeholder="Name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                required />
+                                {...register("firstName", { required: true })}
+                                
+                            />
+                            {errors.firstName && <span className='text-red-400 text-sm'>This field is required</span>}
                         </div>
                         <div className="mb-2">
                             <label className="block mb-2 text-lg font-medium text-purple-900 ">Last Name</label>
@@ -80,47 +88,42 @@ const SignIn = () => {
                                 id="Last Name"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 "
                                 placeholder="Surname"
-                                value={surname}
-                                onChange={(e) => setSurname(e.target.value)}
-                                required />
+                                {...register("lastName", { required: false })}
+                            />
+                            {errors.lastName && <span className='text-red-400 text-sm'>This field is required</span>}
                         </div>
                     </div>
                     <div className="mb-2 border border-gray-400 bg-gray-50 px-2 py-1 rounded-lg cursor-pointer flex w-fit justify-center items-center ">
                         <label className="block text-lg font-medium bg-gray-50 text-purple-900" for="role" > Role :</label>
                         <select
                             className=" outline-none border-none bg-gray-50  ml-2 px-1"
-                            name="role"
-                            id="role"
-                            form='register-form'
-                            onChange={(e) => setUserRole(e.target.value)}
-                            required
+                            {...register("role")}
                         >
                             <option value="alumni" > Alumni </option>
                             <option value="student"> Student </option>
                             <option value="admin"> Admin </option>
 
                         </select>
+                        {errors.role && <span className='text-red-400 text-sm'>This field is required</span>}
                     </div>
                     <div className="mb-2">
                         <label className="block mb-2 text-lg font-medium text-purple-900 ">Enter Email</label>
                         <input
                             type="email"
-                            id="email"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 "
                             placeholder="name@flowbite.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required />
+                            {...register("email", { required: true })}
+                        />
+                        {errors.email && <span className='text-red-400 text-sm'>This field is required</span>}
                     </div>
                     <div className="mb-3">
                         <label className="block mb-2 text-lg font-medium text-purple-900">Enter Password</label>
                         <input
-                            type="password" id="password"
+                            type="password"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
-                            placeholder='Password'
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required />
+                            {...register("password", { required: true })}
+                        />
+                        {errors.password && <span className='text-red-400 text-sm'>This field is required</span>}
                     </div>
 
 
