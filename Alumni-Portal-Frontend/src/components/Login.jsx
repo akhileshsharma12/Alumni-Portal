@@ -25,7 +25,7 @@ const Login = () => {
     }
 
 
-    function handleForm(e) {
+    async function handleForm(e) {
         e.preventDefault();
         console.log("Form Handling");
         console.log("Email = ", email);
@@ -37,6 +37,8 @@ const Login = () => {
         setEmail('');
         setPassword('');
 
+        
+        
         toast('✅ Login Successful !', {
             position: "top-right",
             autoClose: 5000,

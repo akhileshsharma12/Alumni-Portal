@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import JobPositions from './components/JobPositions';
 import Contact from './components/Contact';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import './index.css'
 
 // intro pages
 import Intro from './pages/intro/Intro';

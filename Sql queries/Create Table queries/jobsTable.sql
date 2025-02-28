@@ -9,6 +9,7 @@ CREATE TABLE jobs (
     type VARCHAR(50) CHECK (type IN ('Remote', 'On-Site', 'Hybrid')) NOT NULL, -- Job type
     overview TEXT NOT NULL,                                -- Job description and responsibilities
     verification_status VARCHAR(50) CHECK (verification_status IN ('pending', 'approved', 'rejected')) DEFAULT 'pending', -- Status of job verification
+    apply_link VARCHAR(255) NOT NULL,                      -- Application link
     created_at TIMESTAMP DEFAULT NOW(),                   -- Timestamp for job creation
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE -- Linking to users table
 );
