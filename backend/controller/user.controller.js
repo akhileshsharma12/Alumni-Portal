@@ -90,3 +90,22 @@ export const login = async (req, res) => {
         res.status(500).json("Internal server error");
     }
 }
+
+// clear cookie from frontend and logout user
+export const logout = async (req, res) => {
+    res.clearCookie("token");
+    res.status(200).json({ message: "Logout successful" });
+}
+
+
+export const getUser = async (req,res) =>{
+    try {
+        const token = req.cookies.token; // Read JWT from HTTP-only cookie
+        if (!token) return res.status(401).json({ message: "Not authenticated" });
+    
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY); // Decode JWT
+        res.json({ user: decoded }); // Send decoded user info to frontend
+      } catch (error) {
+        res.status(401).json({ message: "Invalid token" });
+      }
+}

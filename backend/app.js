@@ -2,9 +2,11 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import db from './config/db.config.js';
 import dotenv from 'dotenv';
-import userRoutes from './routes/user.routes.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import userRoutes from './routes/user.routes.js';
+import jobRoutes from './routes/job.routes.js';
+
 
 const env = dotenv.config().parsed;
 const app = express();
@@ -21,6 +23,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 db.connect();
 
 app.use("/api/user", userRoutes);
+
+app.use("/job",jobRoutes);
 
 app.listen(port,()=>{
     console.log("server is running at localhost " + port);
