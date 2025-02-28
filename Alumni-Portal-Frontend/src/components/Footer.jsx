@@ -8,10 +8,10 @@ const Footer = () => {
 
     return (
         <div className='bg-white pt-10'>
-            <footer className="footer bg-[#5c0f8b] text-base-content p-7">
-                <div className='mt-20'>
+            <footer className="footer bg-[#5c0f8b] text-base-content p-7 pl-10">
+                <div className='mt-20 '>
                     <aside>
-                        <img className='h-[53px]' src={main_logo} alt="logo" />
+                        <img className='h-[58px]' src={main_logo} alt="logo" />
                     </aside>
                 </div>
                 <nav>

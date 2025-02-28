@@ -16,9 +16,9 @@ const JobPositions = () => {
             <h2 className='heading text-[#5C0F8B] text-center text-4xl font-[italic] font-bold' style={gradientTextStyle}> Open Job Positions </h2>
 
             <div className='mt-10 px-4 sm:px-8 md:px-20'>
-                <Jobs />
-                <Jobs />
-                <Jobs />
+                <Jobs textToShow="View More" />
+                <Jobs textToShow="View More" />
+                <Jobs textToShow="View More" />
             </div>
 
             <div className='mt-10'>

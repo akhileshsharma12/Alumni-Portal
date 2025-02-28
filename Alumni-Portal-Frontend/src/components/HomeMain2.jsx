@@ -5,7 +5,7 @@ import avatar_img from '../assets/avatar.jpeg';
 
 const HomeMain2 = () => {
     return (
-        <div className="w-full md:w-[80%] min-h-screen py-25 px-5 bg-white">
+        <div className="w-full md:w-[80%] min-h-screen py-25 px-4 md:px-5 bg-white">
 
             <div className="flex flex-col sm:flex-row items-center justify-between w-full border-b pb-2">
 
@@ -33,7 +33,7 @@ const HomeMain2 = () => {
                 </div>
             </div>
 
-            <div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-9'>
+            <div className='mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
                 <DirectoryCard
                     name="Emma Johnson"
                     role="Project Manager"

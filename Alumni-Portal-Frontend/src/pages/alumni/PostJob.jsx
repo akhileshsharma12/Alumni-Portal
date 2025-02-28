@@ -1,18 +1,18 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
-import HomeMain6 from '../../components/HomeMain6'
+import HomeMainPostJob from '../../components/HomeMainPostJob'
 
-const Community = () => {
+const PostJob = () => {
     return (
         <div>
             <Navbar />
-            <div className='flex justify-end'>
+            <div className='memories flex justify-end'>
                 <Sidebar />
-                <HomeMain6 />
+                <HomeMainPostJob />
             </div>
         </div>
     )
 }
 
-export default Community
+export default PostJob

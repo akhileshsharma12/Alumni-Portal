@@ -50,7 +50,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-x-6 ml-auto">
                     {/* Home & Bell Icons (Hidden on Mobile) */}
                     <div className="hidden md:flex items-center gap-x-6 text-white">
-                        <Link to="/home">
+                        <Link to="/alumni/home">
                             <FaHome size={29} className="cursor-pointer" />
                         </Link>
                         {/* <FaBell size={27} className="cursor-pointer" /> */}

@@ -8,7 +8,7 @@ export const useRole = () => {
 };
 
 export const RoleProvider = ({ children }) => {
-  const [role, setRole] = useState("alumni"); 
+  const [role, setRole] = useState("admin"); 
 
   return (
     <RoleContext.Provider value={{ role, setRole }}>
