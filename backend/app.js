@@ -14,7 +14,25 @@ const port = env.PORT || 3000;
 
 // enable cors-policy for api-being used by unknown browsers from another ports
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: true }));
+
+const allowedOrigins = [
+    'http://localhost:5173',
+  ];
+  
+  const corsOptions = {
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl requests, etc)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true, // Enable CORS with credentials
+  };
+  
+    app.use(cors(corsOptions));
 
 
 

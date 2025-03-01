@@ -31,14 +31,7 @@ const Login = () => {
             const res = await API.post('/api/user/login', loginCredentials, { withCredentials: true });
 
             if (res.status === 200) {
-                const user = await API.get('/api/user/get-user', { withCredentials: true });
-                await setRole(user.data.user.role);
-                await setUser({
-                    id : user.data.user.id,
-                    name : user.data.user.fullname,
-                    role : user.data.user.role,
-                    verified : user.data.user.verified
-                });
+
 
                 toast.success('Login Successful !', {
                     position: "top-right",
@@ -49,13 +42,23 @@ const Login = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "light",
-                    onClose: () => {
+                    onClose: async () => {
+                        const user = await API.get('/api/user/get-user', { withCredentials: true });
+                        await setRole(user.data.user.role);
+                        await setUser({
+                            id: user.data.user.id,
+                            name: user.data.user.fullname,
+                            role: user.data.user.role,
+                            verified: user.data.user.verified
+                        });
                         navigate(`/${user.data.user.role}/home`);
                     }
                 });
             }
 
         } catch (error) {
+            console.error(error);
+
             toast.error(error.response.data.message, {
                 position: "top-right",
                 autoClose: 1000,
