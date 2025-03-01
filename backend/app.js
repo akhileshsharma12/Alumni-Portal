@@ -31,7 +31,6 @@ const allowedOrigins = [
     },
     credentials: true, // Enable CORS with credentials
   };
-  
     app.use(cors(corsOptions));
 
 
