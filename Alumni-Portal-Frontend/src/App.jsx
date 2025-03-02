@@ -15,6 +15,7 @@ import SignIn from './components/SignIn';
 
 // alumni pages
 import Alumni_Home from './pages/alumni/Home';
+import Alumni_ProfileView from './pages/alumni/ProfileView'; // User Profile
 import Alumni_AlumniDirectory from './pages/alumni/AlumniDirectory';
 import Alumni_Events from './pages/alumni/Events';
 import Alumni_JobBoard from './pages/alumni/JobBoard';
@@ -23,6 +24,7 @@ import Alumni_Community from './pages/alumni/Community';
 import Alumni_JobBoard_PostJob from './pages/alumni/PostJob';
 import Alumni_JobBoard_ManageJobs from './pages/alumni/ManageJobs';
 import Alumni_donation from './pages/alumni/Donation';
+
 
 // admin pages
 import Admin_Home from './pages/admin/Home';
@@ -64,6 +66,7 @@ function App() {
               
                 <Route path='/alumni' >
                   <Route path='home' element={<ProtectedRoute roleList={['alumni']}><Alumni_Home /></ProtectedRoute>}></Route>
+                  <Route path='user-profile' element={<ProtectedRoute roleList={['alumni']}><Alumni_ProfileView /></ProtectedRoute>}></Route>
                   <Route path='alumni_directory' element={<ProtectedRoute roleList={['alumni']}><Alumni_AlumniDirectory /></ProtectedRoute>}></Route>
                   <Route path='events' element={<ProtectedRoute roleList={['alumni']}><Alumni_Events /></ProtectedRoute>}></Route>
                   <Route path='jobBoard' element={<ProtectedRoute roleList={['alumni']}><Alumni_JobBoard /></ProtectedRoute>}></Route>

@@ -153,14 +153,14 @@ const Navbar = () => {
 
                     {/* User Info (Hidden on Small Screens) */}
                     <div className="hidden md:block text-white text-right">
-                        <h5 className="font-bold text-lg">{user.name}</h5>
+                        <h5 className="font-bold text-xl">{user.name}</h5>
                         <p className="text-sm">{user.role}</p>
                     </div>
 
                     {/* Profile Picture (Dropdown) */}
                     <div className="relative">
                         <button onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
-                            <img src={`https://ui-avatars.com/api/?name=${user.name}background=fff1f1&color=080e4d`} alt=""  className="rounded-4xl h-14" />
+                            <img src={`https://ui-avatars.com/api/?name=${user.name}background=fff1f1&color=080e4d`} alt=""  className="rounded-4xl h-12" />
                             {/* <FaUserCircle size={35} className="text-white" /> */}
                         </button>
 
