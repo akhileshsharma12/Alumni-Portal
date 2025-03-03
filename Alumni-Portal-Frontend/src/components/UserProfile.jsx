@@ -2,7 +2,7 @@
 //     <h1 className="text-3xl font-semibold text-black"> Your Profile </h1>
 // </div>
 
-import React from "react";
+import React, { useState } from "react";
 import { FiEdit3 } from "react-icons/fi";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaBirthdayCake, FaUser } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
@@ -12,25 +12,57 @@ const Profile = () => {
 
     const { user } = useUser();
 
+    const [profileImage, setProfileImage] = useState(
+        `https://ui-avatars.com/api/?name=${user.name}&background=fff1f1&color=080e4d`
+    );
+
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+    
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setProfileImage(reader.result);
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
     return (
         <div className="container mx-auto p-6">
             {/* Profile Card */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white border-2 p-6 rounded-lg text-center shadow-sm">
                     <div className="relative w-24 h-24 mx-auto border-2 border-purple-500 rounded-full flex items-center justify-center">
-                        <input type="image" src={`https://ui-avatars.com/api/?name=${user.name}background=fff1f1&color=080e4d`} alt="Profile" className="w-20 h-20 rounded-full" />
-                        {/* <img src={`https://ui-avatars.com/api/?name=ASbackground=fff1f1&color=080e4d`} alt="Profile" className="w-20 h-20 rounded-full" /> */}
-                        <span className="absolute bottom-0 right-0 bg-white p-1 rounded-full border border-gray-300">
+                        <img
+                            src={profileImage}
+                            alt="Profile"
+                            className="w-20 h-20 rounded-full"
+                        />
+                        <input
+                            type="file"
+                            accept="image/*"
+                            id="profileImageInput"
+                            className="hidden"
+                            onChange={handleImageUpload}
+                        />
+                        <label
+                            htmlFor="profileImageInput"
+                            className="absolute bottom-0 right-0 bg-white p-1 rounded-full border border-gray-300 cursor-pointer"
+                        >
                             📷
-                        </span>
+                        </label>
                     </div>
-                    <h2 className="mt-3 text-lg font-semibold">Sheldon Cooper <FiEdit3 className="inline text-gray-500 ml-1 cursor-pointer" /></h2>
+                    <h2 className="mt-3 text-lg font-semibold">
+                        {user.name} <FiEdit3 className="inline text-gray-500 ml-1 cursor-pointer" />
+                    </h2>
                     <p className="text-gray-500">Alumni, Class of 2024</p>
                     <p className="text-gray-500">Bachelor of Computer Applications, BCA</p>
                     <p className="text-blue-600 font-semibold flex items-center justify-center">
                         Authenticated <span className="ml-1">✔️</span>
                     </p>
                 </div>
+
 
                 {/* Basic Information */}
                 <div className="bg-white border-2 p-6 rounded-lg shadow-sm relative">
@@ -82,9 +114,18 @@ const Profile = () => {
                     </span>
                     <p className="mt-3 text-gray-700">Add a short summary about yourself.</p>
                 </div>
+
+                <div className="bg-white border-2 p-6 rounded-lg shadow-sm relative">
+                    <h2 className="text-lg font-semibold">Hobbies</h2>
+                    <FiEdit3 className="absolute top-4 right-4 text-red-500 cursor-pointer" />
+                    <p className="text-gray-700">Playing Cricket, and Outdoor Games</p>
+                    <p className="text-gray-500">Adventure Trips</p>
+                    <p className="text-gray-500">Reading Books and Playing Video Games</p>
+                </div>
+
             </div>
 
-        </div>
+        </div >
     );
 };
 
