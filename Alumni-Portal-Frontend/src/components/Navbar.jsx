@@ -5,7 +5,12 @@ import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { useUser } from "../store/UserProvider";
 import API from "../api/backend.api";
+<<<<<<< HEAD
 import { ToastContainer } from "react-toastify";
+=======
+import Modal from "./Modal";
+import _ from "lodash";
+>>>>>>> f2f2ff9a46a76dbd35c7d814041ddc8663175e76
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -50,7 +55,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="bg-purple-800 px-6 py-3 flex justify-between items-center w-full fixed top-0 left-0 z-50">
+            <div className="bg-purple-800 px-6 py-2 lg:py-3 flex justify-between items-center w-full fixed top-0 left-0 z-50">
                 {/* Hamburger Menu (Visible on Mobile) */}
                 <div className="text-white flex items-center pr-4 lg:hidden">
                     <button onClick={toggleSidebar}>
@@ -60,7 +65,7 @@ const Navbar = () => {
 
                 {/* Left: Logo */}
                 <div className="flex items-center">
-                    <img className="h-8 sm:h-10 lg:h-[2.80rem]" src={main_logo} alt="GHRU Logo" />
+                    <img className="h-9 sm:h-10 lg:h-[2.80rem]" src={main_logo} alt="GHRU Logo" />
                 </div>
 
                 {/* Right: Icons + Profile */}
@@ -155,13 +160,13 @@ const Navbar = () => {
                     {/* User Info (Hidden on Small Screens) */}
                     <div className="hidden md:block text-white text-right">
                         <h5 className="font-bold text-xl">{user.name}</h5>
-                        <p className="text-sm">{user.role}</p>
+                        <p className="text-sm">{ _.capitalize( user.role) }</p>
                     </div>
 
                     {/* Profile Picture (Dropdown) */}
                     <div className="relative">
                         <button onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
-                            <img src={`https://ui-avatars.com/api/?name=${user.name}background=fff1f1&color=080e4d`} alt=""  className="rounded-4xl h-12" />
+                            <img src={`https://ui-avatars.com/api/?name=${user.name}background=fff1f1&color=080e4d`} alt=""  className="rounded-4xl h-11" />
                             {/* <FaUserCircle size={35} className="text-white" /> */}
                         </button>
 
@@ -181,6 +186,9 @@ const Navbar = () => {
 
             {/* Sidebar */}
             <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} isMobile={isMobile} />
+
+            {/* all Modals import */}
+            <Modal />
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import main_logo from '../assets/ghrua-white.png';
 import logo from '../assets/logo-ghru.webp';
@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useRole } from '../store/RoleProvider';
 import { useUser } from '../store/UserProvider';
 import API from '../api/backend.api.jsX';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 const Login = () => {
 
@@ -72,6 +73,12 @@ const Login = () => {
         }
     };
 
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <div className='bg-purple-800 h-full flex justify-center items-center '>
             <div className='bg-white pb-5 w-95 rounded-xl '>
@@ -95,12 +102,22 @@ const Login = () => {
                     </div>
                     <div className="mb-4">
                         <label className="block mb-2 text-xl font-medium text-purple-900">Enter Password</label>
-                        <input
-                            type="password" id="password"
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
-                            placeholder='Password'
-                            {...register("password", { required: true })}
-                        />
+                        <div className='relative'>
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                id="password"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                                placeholder='Password'
+                                {...register("password", { required: true })}
+                            />
+                            <button
+                                type="button"
+                                className="absolute inset-y-0 right-2 flex items-center text-gray-600"
+                                onClick={togglePasswordVisibility}
+                            >
+                                {showPassword ? <AiFillEyeInvisible size={20} /> : <AiFillEye size={20} />}
+                            </button>
+                        </div>
                         {errors.password && <span className='text-red-400 text-sm'>This field is required</span>}
 
                         <p className='text-end text-gray-600 pt-2 text=[8px] underline'> Forgot Password </p>

@@ -47,7 +47,7 @@ const HomeMain4 = () => {
             </div>
 
             <div className='mt-5'>
-                <Jobs textToShow="View More" />
+                <Jobs  />
             </div>
         </div>
     );
