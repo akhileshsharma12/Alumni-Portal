@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { useUser } from "../store/UserProvider";
 import API from "../api/backend.api";
+import { ToastContainer } from "react-toastify";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -175,6 +176,7 @@ const Navbar = () => {
                         )}
                     </div>
                 </div>
+             
             </div>
 
             {/* Sidebar */}
