@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Jobs from './Jobs';
 import { Link } from 'react-router-dom';
+import API from '../api/backend.api';
 
 const HomeMain4 = () => {
+    const [allJobs, setAllJobs] = useState([]); // Correctly destructure useState
+    const [searchText, setSearchText] = useState("");
+    const [filteredJobs, setFilteredJobs] = useState([]);
 
     const buttonStyle = {
         backgroundColor: '#E6E6FA', // Lavender color
@@ -13,6 +17,34 @@ const HomeMain4 = () => {
         fontSize: '16px',
         cursor: 'pointer',
     };
+
+    useEffect(() => {
+        const getAllJobs = async () => {
+            try {
+                const response = await API.get('/job/all-jobs', { withCredentials: true });
+                setAllJobs(response.data); // Update state with response data
+                setFilteredJobs(response.data);
+            } catch (error) {
+                console.error("Error fetching jobs:", error);
+            }
+        };
+        getAllJobs();
+    }, []);
+
+    const handleSearchChange = (e) => {
+        const searchValue = e.target.value.toLowerCase();
+        setSearchText(searchValue);
+
+        const filtered = allJobs.filter(job => 
+            job.title.toLowerCase().includes(searchValue) ||
+            job.company.toLowerCase().includes(searchValue) || 
+            job.type.toLowerCase().includes(searchValue)
+        )
+
+        setFilteredJobs(filtered);
+        
+    }
+
 
     return (
         <div className="w-full md:w-[80%] min-h-screen py-22 px-5 bg-white">
@@ -35,6 +67,8 @@ const HomeMain4 = () => {
                         type="text"
                         placeholder="Search by job role, location or industry"
                         className="px-3 py-2 rounded-full w-full md:w-80 focus:outline-none"
+                        value={searchText}
+                        onChange={handleSearchChange}
                     />
                     <button style={buttonStyle} className="ml-2"> Search </button>
                 </div>
@@ -47,7 +81,9 @@ const HomeMain4 = () => {
             </div>
 
             <div className='mt-5'>
-                <Jobs  />
+                {filteredJobs.map((job) => (
+                    <Jobs key={job.id} job={job} btnText = "View More" />
+                ))}
             </div>
         </div>
     );

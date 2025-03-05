@@ -1,9 +1,11 @@
 import React from "react";
 import avatar_img from '../assets/avatar.jpeg'; 
 import { useUser } from "../store/UserProvider";
+import { useNavigate } from "react-router-dom";
 
 const ProfileCard = () => {
     const { user } = useUser();
+    const navigate = useNavigate();
     return (
         <div className="border border-gray-300 shadow-lg w-full max-w-md rounded-lg px-5 py-4  bg-white">
             <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -25,7 +27,7 @@ const ProfileCard = () => {
             </div>
 
             {/* Profile Link */}
-            <p className="text-right text-purple-800 underline font-medium mt-10 cursor-pointer hover:text-purple-600">
+            <p className="text-right text-purple-800 underline font-medium mt-10 cursor-pointer hover:text-purple-600" onClick={()=>{ navigate(`/${user.role}/user-profile`) }}>
                 Go to your Profile
             </p>
         </div>

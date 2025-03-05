@@ -24,6 +24,7 @@ import Alumni_Community from './pages/alumni/Community';
 import Alumni_JobBoard_PostJob from './pages/alumni/PostJob';
 import Alumni_JobBoard_ManageJobs from './pages/alumni/ManageJobs';
 import Alumni_donation from './pages/alumni/Donation';
+import Alumni_settingsPage from './pages/alumni/SettingPage';
 
 
 // admin pages
@@ -75,6 +76,7 @@ function App() {
                   <Route path='memories' element={<ProtectedRoute roleList={['alumni']}><Alumni_Memories /></ProtectedRoute>}></Route>
                   <Route path='community' element={<ProtectedRoute roleList={['alumni']}><Alumni_Community /></ProtectedRoute>}></Route>
                   <Route path='donation' element={<ProtectedRoute roleList={['alumni']}><Alumni_donation /></ProtectedRoute>}></Route>
+                  <Route path='setting-controlPage' element={<ProtectedRoute roleList={['alumni']}><Alumni_settingsPage /></ProtectedRoute>}></Route>
                 </Route>
 
                 <Route path='/admin'>

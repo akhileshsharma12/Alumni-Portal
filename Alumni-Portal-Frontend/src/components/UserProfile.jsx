@@ -18,7 +18,7 @@ const Profile = () => {
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
-    
+
         if (file) {
             const reader = new FileReader();
             reader.onload = () => {
@@ -116,11 +116,12 @@ const Profile = () => {
                 </div>
 
                 <div className="bg-white border-2 p-6 rounded-lg shadow-sm relative">
-                    <h2 className="text-lg font-semibold">Hobbies</h2>
+                    <h2 className="text-lg font-semibold"> Experience </h2>
                     <FiEdit3 className="absolute top-4 right-4 text-red-500 cursor-pointer" />
-                    <p className="text-gray-700">Playing Cricket, and Outdoor Games</p>
-                    <p className="text-gray-500">Adventure Trips</p>
-                    <p className="text-gray-500">Reading Books and Playing Video Games</p>
+                    <p className="text-gray-700"> Software Developer at XYZ Company. </p>
+                    <p className="text-gray-500"> Developed and maintained web applications using React and Node.js. </p>
+                    <p className="text-gray-500"> Collaborated with cross-functional teams to deliver high-quality software products. </p>
+                    <p className="text-gray-500"> Led a project to optimize application performance, improving load times by 30%. </p>
                 </div>
 
             </div>

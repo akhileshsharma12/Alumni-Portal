@@ -3,7 +3,7 @@ import { getRole } from "../utils/getRole.js";
 // for user  & admin : get all jobs
 export const getAllJobs = async (req, res) => {
     try {
-        const response = await db.query("SELECT job_id, title, company, location, vacancies, posted_date, type, overview, apply_link FROM jobs WHERE verification_status = $1", ["approved"]);
+        const response = await db.query("SELECT job_id, title, company, location, vacancies, posted_date, type, overview, apply_link FROM jobs WHERE verification_status = $1 ORDER BY created_at DESC ", ["approved"]);
         res.status(200).json(response.rows);
     } catch (error) {
         console.log("Error : ", error);
@@ -86,10 +86,9 @@ export const userJobs = async (req, res) => {
     const user_id = req.query.id;
     console.log(user_id);
     
+    
     try {
-        const response = await db.query("SELECT job_id, title, company, location, vacancies, posted_date, type, overview, apply_link FROM jobs WHERE user_id = $1", [user_id]);
-        console.log(response.rows);
-        
+        const response = await db.query("SELECT title, company, location, vacancies, posted_date, type, overview, apply_link, verification_status FROM jobs WHERE user_id = $1", [user_id]);
         res.status(200).json(response.rows);
     } catch (error) {
         console.log("Error : ", error);

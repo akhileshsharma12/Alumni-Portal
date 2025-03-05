@@ -18,7 +18,7 @@ const Finance = () => {
 
   return (
     <>
-      <h1 className='px-3 pb-3 mt-6 lg:mt-0 text-3xl font-semibold border-b border-gray-500'>Donation</h1>
+      <h1 className='px-3 pb-3 mt-6 lg:mt-2 text-3xl font-semibold border-b border-gray-500'>Donation</h1>
       <div className='mt-20 text-center flex flex-col items-center'>
         <motion.div
           animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }}

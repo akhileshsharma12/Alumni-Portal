@@ -247,7 +247,7 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
                     <Link to={`/Alumni/user-profile`} >
                         <button className="flex items-center space-x-4 px-6 py-2 rounded-lg hover:bg-gray-700 w-full text-left">
                             <FaUser size={20} />
-                            <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Profile View</span>
+                            <span className={`${isOpen ? "block" : "hidden"} transition-all duration-300`}>Profile </span>
                         </button>
                     </Link>
                     <Link to={`/Alumni/alumni_directory`} >
@@ -288,6 +288,7 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
                     </Link>
                 </nav>
             </div>
+
 
             {/* Overlay for mobile view */}
             {isMobile && isOpen && (

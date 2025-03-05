@@ -81,7 +81,7 @@ const PostJob = () => {
                         <div>
                             <label className="block font-semibold">Job Type</label>
                             <select {...register("type", { required: true })} className="w-full p-3 border border-gray-300 rounded-md">
-                                <option value="On-site">Onsite</option>
+                                <option value="On-Site">Onsite</option>
                                 <option value="Remote">Remote</option>
                                 <option value="Hybrid">Hybrid</option>
                             </select>

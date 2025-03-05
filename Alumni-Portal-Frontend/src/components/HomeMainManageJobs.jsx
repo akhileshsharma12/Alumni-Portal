@@ -1,16 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import Jobs from './Jobs';
+import API from '../api/backend.api.jsx';
+import { useUser } from '../store/UserProvider.jsx';
 
 const HomeMainManageJobs = () => {
+    const { user, setUser } = useUser();
+    const [myJobs, setMyJobs] = useState([]);
+  
+    
 
-    const [jobs, setJobs] = useState([
-        { id: 1, jobTitle: "Software Engineer", company: "ABC Company", location: "Remote", vacancies: 4, status: "Pending", date: "31 Dec, 2024" },
-    ]);
 
-    const handleDeleteJob = (id) => {
-        setJobs(jobs.filter(job => job.id !== id));
-    };
+    useEffect(() => {
+        const getAllJobs = async () => {
+            try {
+                const response = await API.get(`/job/user-jobs?id=${user.id}`,{ withCredentials: true });
+                setMyJobs(response.data); // Update state with response data
+            } catch (error) {
+                console.error("Error fetching jobs:", error);
+            }
+        };
+        getAllJobs();
+    }, []);
+   
 
     return (
         <div className="homeMain5  w-full md:w-[80%] min-h-screen py-22 lg:py-20  bg-white">
@@ -31,8 +43,8 @@ const HomeMainManageJobs = () => {
             <div className='ml-4 text-3xl my-4'>
                 <h2> Manage Jobs </h2>
 
-                {jobs.map(job => (
-                    <Jobs key={job.id} job={job} textToShow={"Pending"} onDelete={handleDeleteJob} manageMode />
+                {myJobs.map((job) => (
+                    <Jobs key={job.id} job={job} managePost={true} btnText = {job.verification_status} />
                 ))}
                 
             </div>
