@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiEdit, FiBell, FiLock, FiLogOut, FiUser } from 'react-icons/fi';
+import  { Link } from 'react-router-dom';
 
 const Setting = () => {
 
@@ -51,7 +52,9 @@ const Setting = () => {
                     <div className='bg-gray-50 p-6 rounded-lg shadow-sm border-4'>
                         <h2 className='text-lg font-semibold flex items-center gap-2'><FiLogOut /> Account Management</h2>
                         <p className='text-gray-500'>Log out of your account securely.</p>
-                        <button className='mt-3 bg-red-500 text-white px-4 py-2 rounded'> Logout </button>
+                        <Link to='/'>
+                            <button className='mt-3 bg-red-500 text-white px-4 py-2 rounded'> Logout </button>
+                        </Link>
                     </div>
 
                 </div>

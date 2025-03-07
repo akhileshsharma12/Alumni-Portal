@@ -134,7 +134,8 @@ const Profile = () => {
                 <div className="bg-white border-2 p-6 rounded-lg shadow-sm mt-6 relative">
                     <h2 className="text-lg font-semibold"> Education </h2>
                     <span className="absolute top-4 right-4 text-red-500 cursor-pointer flex row gap-1 items-center " onClick={() => handleEditClick({
-                        education: user.education
+                        education: user.education,
+                        
                     })}>
                         <span>
                             Add Education

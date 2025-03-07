@@ -7,21 +7,21 @@ const YearBook = () => {
   const batches = [
     {
       year: 2025, membersCount: 10, members: [
-        { name: 'Rohit Sharma', city: 'Amravati', degree: 'BCA', graduationYear: 2028 },
-        { name: 'Rohit Sharma', city: 'Amravati', degree: 'BCA', graduationYear: 2028 },
+        { name: 'Rohit Sharma', city: 'Amravati', degree: 'BCA', graduationYear: 2025 },
+        { name: 'Vanit Bobde', city: 'Nagpur', degree: 'BCA', graduationYear: 2025 },
       
-        { name: 'Rohit Sharma', city: 'Amravati', degree: 'BCA', graduationYear: 2028 },
-        { name: 'Rohit Sharma', city: 'Amravati', degree: 'BCA', graduationYear: 2028 },
+        { name: 'Rihant Sahu', city: 'Amravati', degree: 'BCA', graduationYear: 2025 },
+        { name: 'Kirti Joshi', city: 'Amravati', degree: 'BCA', graduationYear: 2025 },
        
       ]
     },
     {
       year: 2024, membersCount: 10, members: [
-        { name: 'Rohit Sharma', city: 'Amravati', degree: 'BCA', graduationYear: 2028 },
-        { name: 'Rohit Sharma', city: 'Amravati', degree: 'BCA', graduationYear: 2028 },
+        { name: 'Anant Ghuge', city: 'Balapur', degree: 'BCA', graduationYear: 2024 },
+        { name: 'Sanket Tidke', city: 'Akola', degree: 'BCA', graduationYear: 2024 },
       
-        { name: 'Rohit Sharma', city: 'Amravati', degree: 'BCA', graduationYear: 2028 },
-        { name: 'Rohit Sharma', city: 'Amravati', degree: 'BCA', graduationYear: 2028 },
+        { name: 'Anita Singh', city: 'Jamod', degree: 'BCA', graduationYear: 2024 },
+        { name: 'Reshma Pal', city: 'Hingoli', degree: 'BCA', graduationYear: 2024 },
        
       ]
     },

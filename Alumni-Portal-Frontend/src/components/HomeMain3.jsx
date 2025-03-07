@@ -23,7 +23,7 @@ const HomeMain3 = () => {
                         University, <br /> Amravati. Laughter, memories, and great company await you at Footprint 2025!
                     </p>
                     <p className='text-black text-sm md:text-lg mt-2'>
-                        <span className='font-semibold'> Date: </span> Saturday, 15th February 2025
+                        <span className='font-semibold'> Date: </span> Saturday, 15th March 2025
                     </p>
                     <p className='text-black text-sm md:text-lg'>
                         <span className='font-semibold'> Time: </span> 11:00 AM onwards

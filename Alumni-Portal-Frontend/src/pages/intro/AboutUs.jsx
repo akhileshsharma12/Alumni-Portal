@@ -12,7 +12,7 @@ const AboutPage = () => {
     return (
         <>
             <Header />
-            <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10 pt-20">
+            <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10 mt-26">
                 <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6 md:p-10">
                     {/* Title */}
                     <h1 className="text-3xl sm:text-4xl font-bold text-center text-blue-800" style={gradientTextStyle}>

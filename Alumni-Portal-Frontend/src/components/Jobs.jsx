@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FiMoreVertical, FiEdit3, FiTrash2 } from "react-icons/fi";
 import { FaPenToSquare } from "react-icons/fa6";
 import { getDateString } from '../utils/timeConverter';
+import IntroJobs from './IntroJobs';
 
 const Jobs = ({ icon, job, managePost, btnText, onViewMore }) => {
     const [jobData, setJobData] = useState(null);
@@ -14,7 +15,7 @@ const Jobs = ({ icon, job, managePost, btnText, onViewMore }) => {
     }, [job]);
 
     if (!jobData) {
-        return <div>Loading...</div>; // Show a loading state while data is being fetched
+        return  <p className='hidden'> Loading </p> ; // Show a loading state while data is being fetched
     }
 
     return (

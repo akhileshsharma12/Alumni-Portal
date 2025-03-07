@@ -20,7 +20,7 @@ const EditModal = ({ isOpen, onClose, data, onSave }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
             <div className="bg-white p-5 rounded-lg w-11/12 md:w-1/2">
                 <h2 className="text-2xl font-semibold mb-4">Edit Information</h2>
                 <form className="space-y-4">

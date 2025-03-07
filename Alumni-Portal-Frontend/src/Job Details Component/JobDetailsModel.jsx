@@ -14,7 +14,7 @@ const JobDetailsModal = ({ job, onClose }) => {
                 <p className="text-lg mb-2"><strong>Description:</strong> {job.overview}</p>
                 <p className="text-lg mb-2"><strong>Posted Date:</strong> {job.posted_date}</p>
                 <p className="text-lg mb-2"><strong>Vacancies:</strong> {job.vacancies}</p>
-                <p className="text-lg mb-2"><strong>Vacancies:</strong> <span className='text-blue-600 underline cursor-pointer'> {job.apply_link} </span> </p>
+                <p className="text-lg mb-2"><strong>Apply : </strong> <span className='text-blue-600 underline cursor-pointer'>  <a href={job.apply_link}>Click here</a></span> </p>
                 <button onClick={onClose} className="mt-4 bg-purple-600 text-white px-4 py-2 rounded">Close</button>
             </div>
         </div>

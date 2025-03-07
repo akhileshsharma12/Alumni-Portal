@@ -29,7 +29,7 @@ const Features = () => {
             <h2 className='text-zinc-800 text-2xl font-bold'>Event Management</h2>
           </div>
           <p className='text-zinc-700 mt-3'>
-          A platform for alumni and companies to post job openings and internships for students and fellow alumni.
+          The Event Management of our Alumni Association platform offers a dynamic space for planning, promoting, and participating in engaging events.
           </p>
         </div>
 
