@@ -13,9 +13,9 @@ const UpComingEvents = () => {
                 Upcoming Events
             </h5>
 
-            <p className="py-3"> Footprint 2025 – A Walk Down Memory Lane!  🎉 </p>
+            <p className="py-3"> No Upcomming Events </p>
 
-            <span className="text-purple-800"> Saturday 15 Feb, 2025 </span>
+            {/* <span className="text-purple-800"> Saturday 15 Feb, 2025 </span> */}
 
             {/* <p className="text-right text-purple-800 underline font-medium mt-10 cursor-pointer hover:text-purple-600">
                 View More
