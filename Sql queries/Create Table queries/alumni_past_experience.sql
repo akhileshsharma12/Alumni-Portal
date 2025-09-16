@@ -11,4 +11,3 @@ CREATE TABLE alumni_past_work_experiences (
     job_description TEXT,                                 -- Job description
     created_at TIMESTAMP DEFAULT NOW(),                  -- Timestamp of entry creation
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE -- Linking to users table
-);
